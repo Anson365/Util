@@ -1,5 +1,7 @@
 package test.fileutil;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.IOException;
 
 import org.junit.Test;
@@ -7,7 +9,7 @@ import org.junit.Test;
 import fileutil.FileUtil;
 
 public class TestFileUtil {
-/*	@Test
+	@Test
 	public void testDoCopyWithChar() throws IOException{
 		FileUtil.doCopyWithChar("G:\\test\\src\\新建文本文档1.txt","G:\\test\\des", null);
 	}
@@ -20,7 +22,7 @@ public class TestFileUtil {
 	@Test
 	public void testDoCopyNIO() throws IOException{
 		FileUtil.doCopyNIO("G:\\test\\src\\新建文本文档3.txt","G:\\test\\des", null);
-	}*/
+	}
 	
 	@Test
 	public void testTransStringAndFile() throws IOException {
