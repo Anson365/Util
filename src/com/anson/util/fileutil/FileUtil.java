@@ -1,4 +1,4 @@
-package fileutil;
+package com.anson.util.fileutil;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -20,10 +20,10 @@ import java.nio.channels.FileChannel;
 
 public class FileUtil {
 	/**
-	 * ÎÄ¼þ¸´ÖÆ£¬ÀûÓÃ×Ö·ûÁ÷
-	 * @param src Ô´ÎÄ¼þ
-	 * @param des Ä¿µÄÄ¿Â¼
-	 * @param fileName ÎÄ¼þÃû nullÄ¬ÈÏÊ¹ÓÃÔ´ÎÄ¼þÃû
+	 * ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+	 * @param src Ô´ï¿½Ä¼ï¿½
+	 * @param des Ä¿ï¿½ï¿½Ä¿Â¼
+	 * @param fileName ï¿½Ä¼ï¿½ï¿½ï¿½ nullÄ¬ï¿½ï¿½Ê¹ï¿½ï¿½Ô´ï¿½Ä¼ï¿½ï¿½ï¿½
 	 * @throws IOException
 	 */
 	public static void doCopyWithChar(String src,String des,String fileName) throws IOException{
@@ -49,10 +49,10 @@ public class FileUtil {
 	}
 	
 	/**
-	 * ÎÄ¼þ¸´ÖÆ£¬ÀûÓÃ×Ö½ÚÁ÷
-	 * @param src Ô´ÎÄ¼þ
-	 * @param des Ä¿µÄÄ¿Â¼
-	 * @param fileName ÎÄ¼þÃû nullÄ¬ÈÏÊ¹ÓÃÔ´ÎÄ¼þÃû
+	 * ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+	 * @param src Ô´ï¿½Ä¼ï¿½
+	 * @param des Ä¿ï¿½ï¿½Ä¿Â¼
+	 * @param fileName ï¿½Ä¼ï¿½ï¿½ï¿½ nullÄ¬ï¿½ï¿½Ê¹ï¿½ï¿½Ô´ï¿½Ä¼ï¿½ï¿½ï¿½
 	 * @throws IOException
 	 */
 	public static void doCopyWithStream(String src,String des,String fileName) throws IOException{
@@ -77,10 +77,10 @@ public class FileUtil {
 	}
 	
 	/**
-	 * ÎÄ¼þ¸´ÖÆ£¬NIO
-	 * @param src Ô´ÎÄ¼þ
-	 * @param des Ä¿µÄÄ¿Â¼
-	 * @param fileName ÎÄ¼þÃû nullÄ¬ÈÏÊ¹ÓÃÔ´ÎÄ¼þÃû
+	 * ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Æ£ï¿½NIO
+	 * @param src Ô´ï¿½Ä¼ï¿½
+	 * @param des Ä¿ï¿½ï¿½Ä¿Â¼
+	 * @param fileName ï¿½Ä¼ï¿½ï¿½ï¿½ nullÄ¬ï¿½ï¿½Ê¹ï¿½ï¿½Ô´ï¿½Ä¼ï¿½ï¿½ï¿½
 	 * @throws IOException
 	 */
 	public static void doCopyNIO(String src,String des,String fileName) throws IOException{
@@ -101,11 +101,11 @@ public class FileUtil {
 	}
 	
 	/**
-	 * ½«×Ö·û´®×ª»»ÎªÖ¸¶¨ÎÄ¼þÊä³ö,×Ö·ûÁ÷
-	 * @param content ×Ö·û´®ÄÚÈÝ
-	 * @param des Ä¿µÄÄ¿Â¼
-	 * @param fileName Ä¿µÄÎÄ¼þ
-	 * @return ÎÄ¼þ¾ø¶ÔÂ·¾¶
+	 * ï¿½ï¿½ï¿½Ö·ï¿½×ªï¿½ï¿½ÎªÖ¸ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½,ï¿½Ö·ï¿½ï¿½ï¿½
+	 * @param content ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param des Ä¿ï¿½ï¿½Ä¿Â¼
+	 * @param fileName Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½
+	 * @return ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	 * @throws IOException
 	 */
 	public static String transString2FileWithChar(String content,String des,String fileName) throws IOException{
@@ -129,11 +129,11 @@ public class FileUtil {
 	
 
 	/**
-	 * ½«×Ö·û´®×ª»»ÎªÖ¸¶¨ÎÄ¼þÊä³ö,×Ö½ÚÁ÷
-	 * @param content ×Ö·û´®ÄÚÈÝ
-	 * @param des Ä¿µÄÄ¿Â¼
-	 * @param fileName Ä¿µÄÎÄ¼þ
-	 * @return ÎÄ¼þ¾ø¶ÔÂ·¾¶
+	 * ï¿½ï¿½ï¿½Ö·ï¿½×ªï¿½ï¿½ÎªÖ¸ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½,ï¿½Ö½ï¿½ï¿½ï¿½
+	 * @param content ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param des Ä¿ï¿½ï¿½Ä¿Â¼
+	 * @param fileName Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½
+	 * @return ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	 * @throws IOException
 	 */
 	public static String transString2FileWithStream(String content,String des,String fileName) throws IOException{
@@ -156,9 +156,9 @@ public class FileUtil {
 	}
 	
 	/**
-	 * ½«ÎÄ¼þÄÚÈÝ×ª»»³É×Ö·û´®
-	 * @param src Ô´ÎÄ¼þ¾ø¶ÔÂ·¾¶
-	 * @return Ô´ÎÄ¼þÄÚÈÝ
+	 * ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
+	 * @param src Ô´ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+	 * @return Ô´ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @throws IOException
 	 */
 	public static String tansFile2String(String src) throws IOException{

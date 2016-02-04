@@ -1,27 +1,25 @@
-package test.fileutil;
+package com.anson.util.test.fileutil;
 
-import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
-
+import com.anson.util.fileutil.FileUtil;
 import org.junit.Test;
 
-import fileutil.FileUtil;
+import java.io.IOException;
 
 public class TestFileUtil {
 	@Test
 	public void testDoCopyWithChar() throws IOException{
-		FileUtil.doCopyWithChar("G:\\test\\src\\ÐÂ½¨ÎÄ±¾ÎÄµµ1.txt","G:\\test\\des", null);
+		FileUtil.doCopyWithChar("G:\\test\\src\\ï¿½Â½ï¿½ï¿½Ä±ï¿½ï¿½Äµï¿½1.txt", "G:\\test\\des", null);
 	}
 	
 	@Test
 	public void testDoCopyWithStream() throws IOException{
-		FileUtil.doCopyWithStream("G:\\test\\src\\ÐÂ½¨ÎÄ±¾ÎÄµµ2.txt","G:\\test\\des", null);
+		FileUtil.doCopyWithStream("G:\\test\\src\\ï¿½Â½ï¿½ï¿½Ä±ï¿½ï¿½Äµï¿½2.txt","G:\\test\\des", null);
 	}
 	
 	@Test
 	public void testDoCopyNIO() throws IOException{
-		FileUtil.doCopyNIO("G:\\test\\src\\ÐÂ½¨ÎÄ±¾ÎÄµµ3.txt","G:\\test\\des", null);
+		FileUtil.doCopyNIO("G:\\test\\src\\ï¿½Â½ï¿½ï¿½Ä±ï¿½ï¿½Äµï¿½3.txt","G:\\test\\des", null);
 	}
 	
 	@Test
