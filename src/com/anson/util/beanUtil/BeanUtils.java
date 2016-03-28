@@ -1,7 +1,13 @@
 package com.anson.util.beanUtil;
 
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by ludao on 16/2/4.
@@ -45,5 +51,97 @@ public class BeanUtils {
             return result;
         }
         return result;
+    }
+
+
+
+    public static Boolean isSimpleBeanEmpty(Class clazz,Object object ){
+        Boolean result = true;
+        if(!(object.getClass()==clazz||clazz.isAssignableFrom(object.getClass()))){
+            throw new IllegalAccessError(String.format("%s is not instance of %s",object.getClass().getName(),clazz.getName()));
+        }
+        if(object == null){
+            return result;
+        }else {
+            Field[] fields = clazz.getDeclaredFields();
+            for(Field field:fields){
+                field.setAccessible(true);
+                if(Modifier.isStatic(field.getModifiers())||Modifier.isFinal(field.getModifiers())
+                        || Modifier.isAbstract(field.getModifiers())){
+                    continue;
+                }else {
+                    try {
+                        Object value = field.get(object);
+                        if (value != null){
+                            result = false;
+                            return result;
+                        }
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            Class parentClass = clazz.getSuperclass();
+            if(parentClass.getName().equalsIgnoreCase("java.lang.Object")){
+                return true;
+            }
+            result = isSimpleBeanEmpty(parentClass,object);
+            return result;
+        }
+    }
+
+    /**
+     * change list bean to map
+     * @param beanList
+     * @return
+     */
+    public static Map<String,Object> changeBean2Map (List<Object> beanList){
+        Map<String,Object> result = new HashMap<String, Object>();
+        if(beanList==null||beanList.size()<1){
+            return result;
+        }else {
+            for(Object bean:beanList){
+                Class clazz = bean.getClass();
+                result = changeBean2Map(result,clazz,bean);
+            }
+            return result;
+        }
+    }
+
+    /**
+     * change bean to map
+     * @param map
+     * @param clazz
+     * @param bean
+     * @return
+     */
+    public static Map<String,Object> changeBean2Map(Map<String,Object> map,Class clazz,Object bean){
+        if(bean == null){
+            return map;
+        }
+        if(!(bean.getClass()==clazz||clazz.isAssignableFrom(bean.getClass()))){
+            throw new IllegalAccessError(String.format("%s is not instance of %s",bean.getClass().getName(),clazz.getName()));
+        }
+        Field[] fields = clazz.getDeclaredFields();
+        try {
+            for(Field field:fields){
+                field.setAccessible(true);
+                if(Modifier.isStatic(field.getModifiers())||Modifier.isAbstract(field.getModifiers())
+                        ||Modifier.isFinal(field.getModifiers())){
+                    continue;
+                }
+                String key = field.getName();
+                Object value = field.get(bean);
+                if(value != null){
+                    map.put(key,value);
+                }
+            }
+            if(!"java.lang.Object".equalsIgnoreCase(clazz.getSuperclass().getName())){
+                map = changeBean2Map(map,clazz.getSuperclass(),bean);
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return map;
     }
 }

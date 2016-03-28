@@ -1,7 +1,14 @@
 package com.anson.util.test.beanUtil;
 
 import com.anson.util.beanUtil.BeanUtils;
+import com.anson.util.test.beanUtil.bean.Test1;
+import com.anson.util.test.beanUtil.bean.Test2;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by ludao on 16/2/4.
@@ -16,55 +23,21 @@ public class TestBeanUtil {
         System.out.println(test2);
     }
 
-}
-class Test1 {
-    private String name ;
-
-    private Integer age;
-
-    public Test1() {
+    @Test
+    public void testIsSimpleBeanEmpty(){
+        Test2 test2 = new Test2();
+        test2.setTall(180);
+        Assert.assertFalse(BeanUtils.isSimpleBeanEmpty(Test2.class, test2));
     }
 
-    public Test1(String name, Integer age) {
-        this.name = name;
-        this.age = age;
+    @Test
+    public void testChangeBean2Map(){
+        Test2 test = new Test2("test",1,180,"guess");
+        List<Object> list = new ArrayList<Object>();
+        list.add(test);
+        Map<String,Object> result = BeanUtils.changeBean2Map(list);
+        System.out.println(result);
     }
 
-    @Override
-    public String toString() {
-        return "Test1{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
 }
 
-class Test2{
-    private String name ;
-
-    private Integer age;
-
-    private Integer tall;
-
-    private String nickname;
-
-    public Test2() {
-    }
-
-    public Test2(String name, Integer age, Integer tall, String nickname) {
-        this.name = name;
-        this.age = age;
-        this.tall = tall;
-        this.nickname = nickname;
-    }
-
-    @Override
-    public String toString() {
-        return "Test2{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", tall=" + tall +
-                ", nickname='" + nickname + '\'' +
-                '}';
-    }
-}
