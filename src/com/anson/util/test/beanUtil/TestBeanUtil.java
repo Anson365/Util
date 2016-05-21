@@ -1,6 +1,8 @@
 package com.anson.util.test.beanUtil;
 
 import com.anson.util.beanUtil.BeanUtils;
+import com.anson.util.external.command.CommandAction;
+import com.anson.util.external.impl.StringCommand;
 import com.anson.util.test.beanUtil.bean.Test1;
 import com.anson.util.test.beanUtil.bean.Test2;
 import org.junit.Assert;
@@ -39,5 +41,11 @@ public class TestBeanUtil {
         System.out.println(result);
     }
 
-}
+    @Test
+    public void testDoAssignField() throws IllegalAccessException {
+        Test1 test1 = new Test1("test",21);
+        CommandAction commandAction = new StringCommand();
+        BeanUtils.doAssignField(test1,String.class, commandAction);
+    }
 
+}

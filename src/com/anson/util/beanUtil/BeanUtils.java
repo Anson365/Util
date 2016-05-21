@@ -1,7 +1,7 @@
 package com.anson.util.beanUtil;
 
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.anson.util.external.command.CommandAction;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -14,6 +14,11 @@ import java.util.Map;
  */
 public class BeanUtils {
 
+    /**
+     * copy bean property
+     * @param source
+     * @param target
+     */
     public static void copyProperties(Object source,Object target){
         try {
             Class targetClass = target.getClass();
@@ -144,4 +149,28 @@ public class BeanUtils {
         }
         return map;
     }
+
+    /**
+     * target object'field do change
+     * @param object
+     * @param targetFieldClass
+     * @param commandAction
+     * @param <T>
+     * @return
+     * @throws IllegalAccessException
+     */
+    public static <T> T doAssignField(T object,Class targetFieldClass,CommandAction commandAction) throws IllegalAccessException {
+        Class clazz = object.getClass();
+        Field[] fields = clazz.getDeclaredFields();
+        for(Field field:fields){
+            field.setAccessible(true);
+            Class fieldName = field.getType();
+            if(fieldName.equals(targetFieldClass)){
+                Object result = commandAction.execute(field.get(object));
+                field.set(object,result);
+            }
+        }
+        return object;
+    }
+
 }
