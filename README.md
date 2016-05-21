@@ -1,9 +1,18 @@
 # Util
-javaweb usual util method
-## copy
-  1.do copy with char
-  2.do copy with stream
-  3.do copy with NIO
-## transform
-  1.turn string content into file content 
-  2.turn file content into string content
+javaweb usual util method   
+ 
+## FileUtil    
+### copy    
+  * do copy with char    
+  * do copy with stream    
+  * do copy with NIO    
+  
+### transform    
+  * turn string content into file content    
+  * turn file content into string content     
+  
+## BeanUtil    
+  * copy bean properties    
+  * judge is all bean's properties is null    
+  * change bean properties to map    
+  * do change with bean's assigned type field

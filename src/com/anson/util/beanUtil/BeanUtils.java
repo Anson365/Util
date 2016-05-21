@@ -59,7 +59,12 @@ public class BeanUtils {
     }
 
 
-
+    /**
+     * is bean empty
+     * @param clazz
+     * @param object
+     * @return
+     */
     public static Boolean isSimpleBeanEmpty(Class clazz,Object object ){
         Boolean result = true;
         if(!(object.getClass()==clazz||clazz.isAssignableFrom(object.getClass()))){
@@ -151,7 +156,7 @@ public class BeanUtils {
     }
 
     /**
-     * target object'field do change
+     * do change target object'field
      * @param object
      * @param targetFieldClass
      * @param commandAction

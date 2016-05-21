@@ -20,10 +20,10 @@ import java.nio.channels.FileChannel;
 
 public class FileUtil {
 	/**
-	 * �ļ����ƣ������ַ���
-	 * @param src Դ�ļ�
-	 * @param des Ŀ��Ŀ¼
-	 * @param fileName �ļ��� nullĬ��ʹ��Դ�ļ���
+	 *do copy whith char
+	 * @param src source file path
+	 * @param des destination file path
+	 * @param fileName file name
 	 * @throws IOException
 	 */
 	public static void doCopyWithChar(String src,String des,String fileName) throws IOException{
@@ -49,10 +49,10 @@ public class FileUtil {
 	}
 	
 	/**
-	 * �ļ����ƣ������ֽ���
-	 * @param src Դ�ļ�
-	 * @param des Ŀ��Ŀ¼
-	 * @param fileName �ļ��� nullĬ��ʹ��Դ�ļ���
+	 *do copy with stream
+	 * @param src source file path
+	 * @param des destination file path
+	 * @param fileName file name
 	 * @throws IOException
 	 */
 	public static void doCopyWithStream(String src,String des,String fileName) throws IOException{
@@ -77,10 +77,10 @@ public class FileUtil {
 	}
 	
 	/**
-	 * �ļ����ƣ�NIO
-	 * @param src Դ�ļ�
-	 * @param des Ŀ��Ŀ¼
-	 * @param fileName �ļ��� nullĬ��ʹ��Դ�ļ���
+	 * do copy whith file channel NIO
+	 * @param src source file path
+	 * @param des destination file path
+	 * @param fileName file name
 	 * @throws IOException
 	 */
 	public static void doCopyNIO(String src,String des,String fileName) throws IOException{
@@ -101,11 +101,11 @@ public class FileUtil {
 	}
 	
 	/**
-	 * ���ַ�ת��Ϊָ���ļ����,�ַ���
-	 * @param content �ַ�����
-	 * @param des Ŀ��Ŀ¼
-	 * @param fileName Ŀ���ļ�
-	 * @return �ļ����·��
+	 * translate string to file with char
+	 * @param content string content
+	 * @param des destination file path
+	 * @param fileName destination file name
+	 * @return Absolute Path
 	 * @throws IOException
 	 */
 	public static String transString2FileWithChar(String content,String des,String fileName) throws IOException{
@@ -129,11 +129,11 @@ public class FileUtil {
 	
 
 	/**
-	 * ���ַ�ת��Ϊָ���ļ����,�ֽ���
-	 * @param content �ַ�����
-	 * @param des Ŀ��Ŀ¼
-	 * @param fileName Ŀ���ļ�
-	 * @return �ļ����·��
+	 * translate string to file with stream
+	 * @param content string content
+	 * @param des destination file path
+	 * @param fileName new file name
+	 * @return absolute path
 	 * @throws IOException
 	 */
 	public static String transString2FileWithStream(String content,String des,String fileName) throws IOException{
@@ -156,9 +156,9 @@ public class FileUtil {
 	}
 	
 	/**
-	 * ���ļ�����ת�����ַ�
-	 * @param src Դ�ļ����·��
-	 * @return Դ�ļ�����
+	 * translate file to string
+	 * @param src source file
+	 * @return string result
 	 * @throws IOException
 	 */
 	public static String tansFile2String(String src) throws IOException{
